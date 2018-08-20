@@ -23,7 +23,7 @@ method      = 'LINE';     % NE: NE based method, Chang et al
 % construct the HR and LR training pairs from the FEI face database
 %[YH YL] = Training_LH(upscale,BlurWindow,nTraining);
 
-load('FEI_YH_YL_Small2.mat','YH','YL')
+load('FEI_YH_YL_Small.mat','YH','YL')
 YH = double(YH);
 YL = double(YL);
 
