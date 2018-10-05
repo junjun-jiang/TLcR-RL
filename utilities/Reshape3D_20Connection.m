@@ -1,7 +1,7 @@
-function Y = Reshape3D_20Connection(X,B,padpixel)
+function Y = Reshape3D_20Connection(X,B,stepsize,padpixel)
 
 patch_size = B(2)+1-B(1);
-stepsize = 2;
+% stepsize = 2;
 Y = [];
 for i = -padpixel:stepsize:padpixel
     for j = -padpixel:stepsize:padpixel
