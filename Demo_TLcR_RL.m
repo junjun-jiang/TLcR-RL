@@ -42,7 +42,7 @@ for TestImgIndex = 1:nTesting
     im_b = imresize(im_l,upscale,'bicubic');
 
     % hallucinate the high frequency face via TLcR
-    [im_SR] = TLcR_RL_Pos(im_b,YH,YL,upscale,patch_size,overlap,stepsize,window,tau,K,c); 
+    [im_SR] = TLcR_RL(im_b,YH,YL,upscale,patch_size,overlap,stepsize,window,tau,K,c); 
     % add the high frequency face to result
     [im_SR] = im_SR+im_b;
     
@@ -60,7 +60,7 @@ for TestImgIndex = 1:nTesting
         im_lSR  = imfilter(im_SR,psf);
         im_lSR  = imresize(im_lSR,1/upscale,'bicubic');    
         im_lSR  = imresize(im_lSR,size(im_SR));
-        [im_SR] = TLcR_RL_Pos(im_b,cat(3,YH,im_SR-im_lSR),cat(3,YL,im_lSR),upscale,patch_size,overlap,stepsize,window,tau,K,c);
+        [im_SR] = TLcR_RL(im_b,cat(3,YH,im_SR-im_lSR),cat(3,YL,im_lSR),upscale,patch_size,overlap,stepsize,window,tau,K,c);
         [im_SR] = im_SR+im_b;
         % compute PSNR and SSIM for Bicubic and TLcR-RL method
         TLcRRL_psnr(ls,TestImgIndex) = psnr(im_SR,im_h);
