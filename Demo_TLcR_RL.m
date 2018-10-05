@@ -21,6 +21,7 @@ layer       = 6;          % the iteration value in reproducing learning
 % construct the HR and LR training pairs from the FEI face database
 [YH YL] = Training_LH(upscale,nTraining);
 
+
 YH = double(YH);
 YL = double(YL);
 
