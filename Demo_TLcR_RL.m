@@ -19,9 +19,8 @@ tau         = 0.04;       % locality constraint parameter
 layer       = 6;          % the iteration value in reproducing learning
 
 % construct the HR and LR training pairs from the FEI face database
-% [YH YL] = Training_LH(upscale,nTraining);
+[YH YL] = Training_LH(upscale,nTraining);
 
-load('FEI_YH_YL.mat','YH','YL')
 YH = double(YH);
 YL = double(YL);
 
