@@ -11,17 +11,19 @@ nTesting    = 40;         % number of ptest sample
 upscale     = 4;          % upscaling factor 
 patch_size  = 12;         % image patch size
 overlap     = 4;          % the overlap between neighborhood patches
+stepsize    = 2;          % step size
 
 % parameter settings
 window      = 16;         % contextal patch,12, 16, 20, 24, 28, ... (12 means us no contextal information)
-K           = 360;        % thresholding parameter
+K           = 500;        % thresholding parameter
 tau         = 0.04;       % locality constraint parameter
-layer       = 6;          % the iteration value in reproducing learning
+layer       = 5;          % the iteration value in reproducing learning
+c           = 10;         % the weight of the spatial feature
 
 % construct the HR and LR training pairs from the FEI face database
 [YH YL] = Training_LH(upscale,nTraining);
 
-
+% load('FEI_YH_YL.mat','YH','YL')
 YH = double(YH);
 YL = double(YL);
 
@@ -40,7 +42,7 @@ for TestImgIndex = 1:nTesting
     im_b = imresize(im_l,upscale,'bicubic');
 
     % hallucinate the high frequency face via TLcR
-    [im_SR] = TLcR_RL(im_b,YH,YL,upscale,patch_size,overlap,window,tau,K); 
+    [im_SR] = TLcR_RL_Pos(im_b,YH,YL,upscale,patch_size,overlap,stepsize,window,tau,K,c); 
     % add the high frequency face to result
     [im_SR] = im_SR+im_b;
     
@@ -58,7 +60,7 @@ for TestImgIndex = 1:nTesting
         im_lSR  = imfilter(im_SR,psf);
         im_lSR  = imresize(im_lSR,1/upscale,'bicubic');    
         im_lSR  = imresize(im_lSR,size(im_SR));
-        [im_SR] = TLcR_RL(im_b,cat(3,YH,im_SR-im_lSR),cat(3,YL,im_lSR),upscale,patch_size,overlap,window,tau,K);
+        [im_SR] = TLcR_RL_Pos(im_b,cat(3,YH,im_SR-im_lSR),cat(3,YL,im_lSR),upscale,patch_size,overlap,stepsize,window,tau,K,c);
         [im_SR] = im_SR+im_b;
         % compute PSNR and SSIM for Bicubic and TLcR-RL method
         TLcRRL_psnr(ls,TestImgIndex) = psnr(im_SR,im_h);
