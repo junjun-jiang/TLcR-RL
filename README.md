@@ -2,8 +2,23 @@
 
 The code is for the work:
 
-[1] J. Jiang, Y. Yu, S. Tang, J. Ma, A. Aizawa, and k. Aizawa, “Context-Patch based Face Hallucination via Thresholding Locality-Constrained Representation and Reproducing Learning,” IEEE Transactions on Cybernetics, 2018.
-[2] J. Jiang, Y. Yu, S. Tang, J. Ma, G. Qi, and A. Aizawa, “Context-Patch based Face Hallucination via Thresholding Locality-Constrained Representation and Reproducing Learning,” in International Conference on Multimedia and Expo (ICME 2017), Hong Kong, China, Jul 2017. (Finalist of the World's FIRST 10K Best Paper Award) 
+````
+@inproceedings{jiang2017context,
+  title={Context-patch based face hallucination via thresholding locality-constrained representation and reproducing learning},
+  author={Jiang, Junjun and Yu, Yi and Tang, Suhua and Ma, Jiayi and Qi, Guo-Jun and Aizawa, Akiko},
+  booktitle={ICME 2017},
+  pages={469--474},
+  year={2017},
+  organization={IEEE}
+}
+
+@article{jiang2018context,
+  title={Context-Patch Face Hallucination Based on Thresholding Locality-constrained Representation and Reproducing Learning},
+  author={Jiang, Junjun and Yu, Yi and Tang, Suhua and Ma, Jiayi and Aizawa, Akiko and Aizawa, Kiyoharu},
+  journal={IEEE Transactions on Cybernetics},
+  year={2018}
+}
+````
 
 
 
