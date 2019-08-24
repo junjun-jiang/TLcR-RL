@@ -1,6 +1,6 @@
 ## We have updated the code on Oct 5, 2018. Now, the performance is the same as in our paper.
 
-The code is for the work:
+The code is for the work (it achieves the state-of-the-art perfromance for patch based face super-resolution):
 
 ````
 @inproceedings{jiang2017context,
